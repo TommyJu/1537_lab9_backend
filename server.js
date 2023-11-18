@@ -12,7 +12,7 @@ app.use(cors());
     // res.sendFile("/Users/tommy/Documents/term_1/comp_1537/lab9-weather-app-node-js-and-express-js-TommyJu/front_end/index.html");
     
 // })
-app.get("/", (req, res) => res.type('html').send(html));
+// app.get("/", (req, res) => res.type('html').send(html));
 
 
 app.listen(port, () => {
@@ -27,3 +27,5 @@ app.get('/weather', async (req, res) => {
     console.log(resJson)
     res.send(resJson)
 })
+
+
