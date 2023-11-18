@@ -1,4 +1,5 @@
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch';
+const axios = require("axios");
 const express = require('express')
 const app = express()
 const port = 3000
@@ -21,11 +22,19 @@ app.listen(port, () => {
 
 app.get('/weather', async (req, res) => {
     console.log(req.query.city)
-    resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=7e0b4d751df9c8683642fcd8e6807653&units=metric`)
+    resp = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=7e0b4d751df9c8683642fcd8e6807653&units=metric`)
 
     resJson = await resp.json();
     console.log(resJson)
     res.send(resJson)
 })
 
+app.get('/weather', async (req, res) => {
+  console.log(req.query.city)
+  resp = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=7e0b4d751df9c8683642fcd8e6807653&units=metric`)
+
+  resJson = await resp.json();
+  console.log(resJson)
+  res.send(resJson)
+})
 
