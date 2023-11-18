@@ -6,11 +6,13 @@ const cors = require('cors');
 app.use(cors());
 
 // Can send an html file
-app.get('/', (req, res) => {
+// app.get('/', (req, res) => {
 //   res.send('Hello World!')
     // res.sendFile(__dirname + '../front_end/index.html')
-    res.sendFile("/Users/tommy/Documents/term_1/comp_1537/lab9-weather-app-node-js-and-express-js-TommyJu/front_end/index.html");
-})
+    // res.sendFile("/Users/tommy/Documents/term_1/comp_1537/lab9-weather-app-node-js-and-express-js-TommyJu/front_end/index.html");
+    
+// })
+app.get("/", (req, res) => res.type('html').send(html));
 
 
 app.listen(port, () => {
