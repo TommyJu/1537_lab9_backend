@@ -24,11 +24,11 @@ app.get('/weather', async (req, res) => {
   try {
     console.log(req.query.city)
     resp = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=7e0b4d751df9c8683642fcd8e6807653&units=metric`)
-    weatherData = resp.data;
+    data = resp.data;
 
-    description = weatherData.weather[0].description;
-    temperature = weatherData.main.temp;
-    icon = weatherData.weather[0].icon;
+    description = data.weather[0].description;
+    temperature = data.main.temp;
+    icon = data.weather[0].icon;
     
     res.json({temperature, description, icon});
   } catch {
