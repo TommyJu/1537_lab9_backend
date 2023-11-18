@@ -21,14 +21,19 @@ app.listen(port, () => {
 })
 
 app.get('/weather', async (req, res) => {
+  try {
     console.log(req.query.city)
-    resp = await axios(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=7e0b4d751df9c8683642fcd8e6807653&units=metric`)
+    resp = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.city}&appid=7e0b4d751df9c8683642fcd8e6807653&units=metric`)
     weatherData = resp.data;
-    temperature = weatherData.main.temp;
+
     description = weatherData.weather[0].description;
+    temperature = weatherData.main.temp;
     icon = weatherData.weather[0].icon;
     
-    res.json = await ({temperature, description, icon});
+    res.json({temperature, description, icon});
+  } catch {
+    console.log("error");
+  }
     // console.log(resJson)
     // res.send(resJson)
 })
