@@ -1,9 +1,8 @@
+import fetch from 'node-fetch';
 const express = require('express')
 const app = express()
 const port = 3000
 const cors = require('cors');
-const fetch = require('node-fetch');
-
 app.use(cors());
 
 // Can send an html file
